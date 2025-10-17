@@ -1,0 +1,2678 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CreaverseDAO - The Living Universe of Creativity</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #6B46C1;
+            --secondary-color: #9333EA;
+            --accent-color: #EC4899;
+            --dark-color: #1F2937;
+            --light-color: #F9FAFB;
+            --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--dark-color);
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        .navbar {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar-brand img {
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        .navbar-nav .nav-link {
+            font-weight: 500;
+            margin: 0 10px;
+            color: var(--dark-color);
+            transition: color 0.3s ease;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: var(--primary-color);
+        }
+
+        .btn-primary-custom {
+            background: var(--gradient);
+            border: none;
+            padding: 10px 25px;
+            border-radius: 50px;
+            font-weight: 600;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary-custom:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(107, 70, 193, 0.3);
+        }
+
+        .btn-secondary-custom {
+            background: transparent;
+            border: 2px solid white;
+            padding: 10px 25px;
+            border-radius: 50px;
+            font-weight: 600;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary-custom:hover {
+            background-color: white;
+            color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://picsum.photos/seed/creaversedao/1920/1080.jpg');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.1;
+            z-index: 0;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+            max-width: 700px;
+            opacity: 0.8;
+        }
+
+        .token-badge {
+            display: inline-flex;
+            align-items: center;
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 8px 20px;
+            border-radius: 50px;
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+
+        .token-badge i {
+            margin-right: 8px;
+        }
+
+        .hero-logo {
+            max-width: 300px;
+            margin-bottom: 30px;
+            filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.2));
+        }
+
+        /* Problem & Solution Section */
+        .section-padding {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--dark-color);
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 50px;
+            color: #6B7280;
+        }
+
+        .problem-card, .solution-card {
+            background-color: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            height: 100%;
+            transition: all 0.3s ease;
+        }
+
+        .problem-card:hover, .solution-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-icon {
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+
+        .problem-icon {
+            background-color: rgba(239, 68, 68, 0.1);
+            color: #EF4444;
+        }
+
+        .solution-icon {
+            background-color: rgba(16, 185, 129, 0.1);
+            color: #10B981;
+        }
+
+        /* How It Works Section */
+        .how-it-works {
+            background-color: var(--light-color);
+        }
+
+        .process-step {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0 auto 20px;
+        }
+
+        .step-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--dark-color);
+        }
+
+        .step-description {
+            color: #6B7280;
+        }
+
+        /* Token Section */
+        .token-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .token-card {
+            background-color: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 30px;
+            height: 100%;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .token-card h4 {
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .token-card p {
+            opacity: 0.9;
+        }
+
+        /* Use Cases Section */
+        .use-case-card {
+            background-color: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+
+        .use-case-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .use-case-img {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .use-case-content {
+            padding: 25px;
+        }
+
+        .use-case-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--dark-color);
+        }
+
+        .use-case-description {
+            color: #6B7280;
+        }
+
+        /* Roadmap Section */
+        .roadmap {
+            background-color: var(--light-color);
+        }
+
+        .timeline {
+            position: relative;
+            padding: 20px 0;
+        }
+
+        .timeline::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
+            background: var(--gradient);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 50px;
+        }
+
+        .timeline-content {
+            background-color: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            width: 45%;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content {
+            margin-left: auto;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            top: 25px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 20px;
+            background: var(--gradient);
+            border-radius: 50%;
+            border: 4px solid white;
+            z-index: 1;
+        }
+
+        .timeline-date {
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .timeline-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        /* FAQ Section */
+        .accordion-button {
+            font-weight: 600;
+            color: var(--dark-color);
+        }
+
+        .accordion-button:not(.collapsed) {
+            background-color: rgba(107, 70, 193, 0.1);
+            color: var(--primary-color);
+        }
+
+        .accordion-button:focus {
+            box-shadow: none;
+            border-color: rgba(0,0,0,.125);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: white;
+            display: flex;
+            align-items: center;
+        }
+
+        .footer-logo img {
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        .footer-description {
+            margin-bottom: 30px;
+            opacity: 0.8;
+        }
+
+        .footer-links h5 {
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .footer-links ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-links ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links ul li a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links ul li a:hover {
+            color: white;
+        }
+
+        .social-icons a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            margin-right: 10px;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            opacity: 0.7;
+        }
+
+        /* Whitepaper Styles */
+        .whitepaper-section {
+            display: none;
+            padding: 0;
+            background-color: #f8f9fa;
+            position: relative;
+            z-index: 100;
+        }
+
+        .whitepaper-section.active {
+            display: block;
+        }
+
+        .whitepaper-hero {
+            padding: 100px 0 60px;
+            background: var(--gradient);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .whitepaper-hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://picsum.photos/seed/creaversedao-whitepaper/1920/1080.jpg');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.1;
+            z-index: 0;
+        }
+
+        .whitepaper-hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .whitepaper-title {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .whitepaper-subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .whitepaper-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 60px 20px;
+            background-color: white;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            border-radius: 10px;
+            margin-top: -30px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .whitepaper-section-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+            color: var(--primary-color);
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--gradient);
+            position: relative;
+        }
+
+        .whitepaper-section-title::after {
+            content: "";
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100px;
+            height: 2px;
+            background: var(--gradient);
+        }
+
+        .whitepaper-subsection-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            color: var(--dark-color);
+        }
+
+        .whitepaper-sub-subsection-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            color: var(--dark-color);
+        }
+
+        .whitepaper-paragraph {
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        .whitepaper-highlight-box {
+            background-color: rgba(107, 70, 193, 0.05);
+            border-left: 4px solid var(--primary-color);
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .whitepaper-highlight-box p {
+            margin-bottom: 0;
+        }
+
+        .whitepaper-table-container {
+            margin: 30px 0;
+            overflow-x: auto;
+        }
+
+        .whitepaper-custom-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        .whitepaper-custom-table th, .whitepaper-custom-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .whitepaper-custom-table th {
+            background-color: rgba(107, 70, 193, 0.1);
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .whitepaper-custom-table tr:hover {
+            background-color: rgba(107, 70, 193, 0.05);
+        }
+
+        .whitepaper-diagram-container {
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .whitepaper-diagram-img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .whitepaper-list-item {
+            margin-bottom: 15px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .whitepaper-list-item::before {
+            content: "•";
+            color: var(--primary-color);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        .whitepaper-toc-container {
+            background-color: rgba(107, 70, 193, 0.05);
+            padding: 25px;
+            border-radius: 8px;
+            margin-bottom: 40px;
+        }
+
+        .whitepaper-toc-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        .whitepaper-toc-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .whitepaper-toc-list li {
+            margin-bottom: 10px;
+        }
+
+        .whitepaper-toc-list a {
+            color: var(--dark-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .whitepaper-toc-list a:hover {
+            color: var(--primary-color);
+        }
+
+        .whitepaper-toc-list .toc-level-2 {
+            padding-left: 20px;
+            margin-top: 8px;
+        }
+
+        .whitepaper-toc-list .toc-level-3 {
+            padding-left: 40px;
+            margin-top: 5px;
+        }
+
+        .back-to-main {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--gradient);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .back-to-main.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-main:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .whitepaper-close-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 1001;
+        }
+
+        .whitepaper-close-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        /* Team Section Styles */
+        .team-section {
+            display: none;
+            padding: 0;
+            background-color: #f8f9fa;
+            position: relative;
+            z-index: 100;
+        }
+
+        .team-section.active {
+            display: block;
+        }
+
+        .team-hero {
+            padding: 100px 0 60px;
+            background: var(--gradient);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .team-hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://picsum.photos/seed/creaversedao-team/1920/1080.jpg');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.1;
+            z-index: 0;
+        }
+
+        .team-hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .team-title {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .team-subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .team-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 60px 20px;
+            background-color: white;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            border-radius: 10px;
+            margin-top: -30px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .team-section-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+            color: var(--primary-color);
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--gradient);
+            position: relative;
+        }
+
+        .team-section-title::after {
+            content: "";
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100px;
+            height: 2px;
+            background: var(--gradient);
+        }
+
+        .team-subsection-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            color: var(--dark-color);
+        }
+
+        .team-paragraph {
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        .team-highlight-box {
+            background-color: rgba(107, 70, 193, 0.05);
+            border-left: 4px solid var(--primary-color);
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .team-highlight-box p {
+            margin-bottom: 0;
+        }
+
+        .team-list-item {
+            margin-bottom: 15px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .team-list-item::before {
+            content: "•";
+            color: var(--primary-color);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        .position-card {
+            background-color: white;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+
+        .position-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            border-color: var(--primary-color);
+        }
+
+        .position-card h4 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        .position-card p {
+            margin-bottom: 0;
+            color: #6B7280;
+        }
+
+        .contact-info {
+            background-color: rgba(107, 70, 193, 0.05);
+            border-radius: 15px;
+            padding: 30px;
+            margin-top: 40px;
+        }
+
+        .contact-info h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        .contact-info p {
+            margin-bottom: 15px;
+        }
+
+        .contact-info .email {
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .back-to-main-team {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--gradient);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .back-to-main-team.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-main-team:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .team-close-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 1001;
+        }
+
+        .team-close-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+
+            .timeline::before {
+                left: 30px;
+            }
+
+            .timeline-content {
+                width: calc(100% - 60px);
+                margin-left: 60px !important;
+            }
+
+            .timeline-dot {
+                left: 30px;
+            }
+
+            .whitepaper-title {
+                font-size: 2.2rem;
+            }
+
+            .whitepaper-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .whitepaper-section-title {
+                font-size: 1.8rem;
+            }
+
+            .whitepaper-subsection-title {
+                font-size: 1.5rem;
+            }
+
+            .whitepaper-sub-subsection-title {
+                font-size: 1.2rem;
+            }
+
+            .whitepaper-container {
+                padding: 40px 15px;
+            }
+
+            .team-title {
+                font-size: 2.2rem;
+            }
+
+            .team-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .team-section-title {
+                font-size: 1.8rem;
+            }
+
+            .team-subsection-title {
+                font-size: 1.5rem;
+            }
+
+            .team-container {
+                padding: 40px 15px;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fade-in-up {
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--gradient);
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--primary-color);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#home">
+                <img src="https://z-cdn-media.chatglm.cn/files/e90b23a3-b24a-4ab9-8a45-5730adf094dd_dao.png?auth_key=1792192747-6a41cbcdcc6849f6ab8363a42bd392f1-0-9330ec1ce8083ca1dbe9c276bdc3648a" alt="CreaverseDAO Logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#how-it-works">How It Works</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#token">Token</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#use-cases">Use Cases</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#roadmap">Roadmap</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#faq">FAQ</a>
+                    </li>
+                    <li class="nav-item ms-3">
+                        <a href="#" class="btn btn-primary-custom">Connect Wallet</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Website Content -->
+    <div id="mainContent">
+        <!-- Hero Section -->
+        <section id="home" class="hero-section">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 hero-content">
+                        <div class="token-badge">
+                            <i class="fas fa-coins"></i> Token: $CREADAO
+                        </div>
+                        <h1 class="hero-title animate-fade-in-up">The Living Universe of Creativity</h1>
+                        <p class="hero-subtitle animate-fade-in-up">Where every act of creation adds value</p>
+                        <p class="hero-description animate-fade-in-up">
+                            CreaverseDAO is a blockchain-powered platform where creators earn transparent royalties, 
+                            and consumers earn tokens for engagement, discovery, and reviews across all creative domains.
+                        </p>
+                        <div class="d-flex flex-wrap gap-3 animate-fade-in-up">
+                            <a href="#how-it-works" class="btn btn-light btn-lg px-4 py-3 rounded-pill">
+                                Learn More
+                            </a>
+                            <a href="#" id="readWhitepaperBtn" class="btn btn-secondary-custom btn-lg px-4 py-3 rounded-pill">
+                                Whitepaper
+                            </a>
+                            <a href="#" id="joinTeamBtn" class="btn btn-secondary-custom btn-lg px-4 py-3 rounded-pill">
+                                Step Into Our Team
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="text-center">
+                            <img src="https://z-cdn-media.chatglm.cn/files/e90b23a3-b24a-4ab9-8a45-5730adf094dd_dao.png?auth_key=1792192747-6a41cbcdcc6849f6ab8363a42bd392f1-0-9330ec1ce8083ca1dbe9c276bdc3648a" alt="CreaverseDAO Logo" class="hero-logo">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Problem & Solution Section -->
+        <section id="about" class="section-padding">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <h2 class="section-title">The Problem & Solution</h2>
+                    <p class="section-subtitle">Revolutionizing the creative economy through decentralization</p>
+                </div>
+                <div class="row g-4">
+                    <div class="col-lg-6">
+                        <div class="problem-card">
+                            <div class="card-icon problem-icon">
+                                <i class="fas fa-exclamation-triangle"></i>
+                            </div>
+                            <h3>The Problem Today</h3>
+                            <p class="mb-3">Creators lose earnings to middlemen, and consumers get no value despite driving the success of creative works.</p>
+                            <ul class="list-unstyled">
+                                <li class="mb-2"><i class="fas fa-times-circle text-danger me-2"></i> Artists, writers, filmmakers rely on centralized platforms</li>
+                                <li class="mb-2"><i class="fas fa-times-circle text-danger me-2"></i> Fans and reviewers contribute value but get nothing in return</li>
+                                <li class="mb-2"><i class="fas fa-times-circle text-danger me-2"></i> Revenue distribution is opaque and unfair</li>
+                                <li class="mb-2"><i class="fas fa-times-circle text-danger me-2"></i> Early supporters and promoters are unrewarded</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="solution-card">
+                            <div class="card-icon solution-icon">
+                                <i class="fas fa-lightbulb"></i>
+                            </div>
+                            <h3>Our Crypto Solution</h3>
+                            <p class="mb-3">A tokenized ecosystem for creation and participation where value flows back to contributors.</p>
+                            <ul class="list-unstyled">
+                                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Transparent royalty distribution via smart contracts</li>
+                                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Consumers earn tokens for genuine engagement</li>
+                                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Proof-of-Value system rewards quality contributions</li>
+                                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Community-owned and self-sustaining economy</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works Section -->
+        <section id="how-it-works" class="section-padding how-it-works">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <h2 class="section-title">How It Works</h2>
+                    <p class="section-subtitle">A transparent ecosystem for creators and consumers</p>
+                </div>
+                <div class="row">
+                    <div class="col-lg-3 col-md-6">
+                        <div class="process-step">
+                            <div class="step-number">1</div>
+                            <h4 class="step-title">Tokenized Creative Works</h4>
+                            <p class="step-description">Every project is tokenized into a smart contract with transparent royalty splits visible on-chain.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="process-step">
+                            <div class="step-number">2</div>
+                            <h4 class="step-title">Engage-to-Earn</h4>
+                            <p class="step-description">Consumers earn tokens for posting verified reviews, getting upvotes, early discovery, and sharing works.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="process-step">
+                            <div class="step-number">3</div>
+                            <h4 class="step-title">Proof-of-Value System</h4>
+                            <p class="step-description">Smart contracts calculate fair token rewards based on engagement quality, accuracy, and community trust.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="process-step">
+                            <div class="step-number">4</div>
+                            <h4 class="step-title">Creator & Consumer DAOs</h4>
+                            <p class="step-description">Two interconnected governance systems where both creators and consumers have balanced influence.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center mt-5">
+                    <a href="#" id="readWhitepaperBtn2" class="btn btn-primary-custom btn-lg px-5 py-3 rounded-pill">
+                        <i class="fas fa-book me-2"></i> Read Whitepaper
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Token Section -->
+        <section id="token" class="section-padding token-section">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <h2 class="section-title text-white">$CREADAO Token</h2>
+                    <p class="section-subtitle text-white-50">The utility token powering the CreaverseDAO ecosystem</p>
+                </div>
+                <div class="row g-4">
+                    <div class="col-lg-3 col-md-6">
+                        <div class="token-card">
+                            <i class="fas fa-coins fa-2x mb-3"></i>
+                            <h4>Rewards</h4>
+                            <p>Paid to creators, reviewers, referrers, and curators for their contributions to the ecosystem.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="token-card">
+                            <i class="fas fa-vote-yea fa-2x mb-3"></i>
+                            <h4>Governance</h4>
+                            <p>DAO voting rights for project funding, fee policies, and platform development decisions.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="token-card">
+                            <i class="fas fa-key fa-2x mb-3"></i>
+                            <h4>Access</h4>
+                            <p>Used to unlock premium content, early access, limited drops, and exclusive experiences.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="token-card">
+                            <i class="fas fa-lock fa-2x mb-3"></i>
+                            <h4>Staking</h4>
+                            <p>Users can stake tokens for better visibility, higher reward multipliers, or reduced transaction fees.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-5">
+                    <div class="col-lg-6 mx-auto">
+                        <div class="token-card text-center">
+                            <h4 class="mb-4">Token Distribution</h4>
+                            <div class="row text-start">
+                                <div class="col-6 mb-2">
+                                    <div class="d-flex justify-content-between">
+                                        <span>Creator Rewards</span>
+                                        <span>40%</span>
+                                    </div>
+                                </div>
+                                <div class="col-6 mb-2">
+                                    <div class="d-flex justify-content-between">
+                                        <span>Consumer Rewards</span>
+                                        <span>25%</span>
+                                    </div>
+                                </div>
+                                <div class="col-6 mb-2">
+                                    <div class="d-flex justify-content-between">
+                                        <span>Ecosystem Development</span>
+                                        <span>15%</span>
+                                    </div>
+                                </div>
+                                <div class="col-6 mb-2">
+                                    <div class="d-flex justify-content-between">
+                                        <span>Team & Advisors</span>
+                                        <span>10%</span>
+                                    </div>
+                                </div>
+                                <div class="col-6 mb-2">
+                                    <div class="d-flex justify-content-between">
+                                        <span>Reserve</span>
+                                        <span>5%</span>
+                                    </div>
+                                </div>
+                                <div class="col-6 mb-2">
+                                    <div class="d-flex justify-content-between">
+                                        <span>Public Offering</span>
+                                        <span>5%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Use Cases Section -->
+        <section id="use-cases" class="section-padding">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <h2 class="section-title">Use Cases Across Creative Domains</h2>
+                    <p class="section-subtitle">Empowering creators and consumers in every field</p>
+                </div>
+                <div class="row g-4">
+                    <div class="col-lg-4 col-md-6">
+                        <div class="use-case-card">
+                            <div class="use-case-img" style="background-image: url('https://picsum.photos/seed/cinema/400/200.jpg');"></div>
+                            <div class="use-case-content">
+                                <h3 class="use-case-title">🎬 Cinema</h3>
+                                <p class="use-case-description">
+                                    Films are tokenized with transparent royalty splits. Early viewers leave detailed reviews and earn CREADAO tokens, while creators receive automatic royalty distributions.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="use-case-card">
+                            <div class="use-case-img" style="background-image: url('https://picsum.photos/seed/art/400/200.jpg');"></div>
+                            <div class="use-case-content">
+                                <h3 class="use-case-title">🎨 Art</h3>
+                                <p class="use-case-description">
+                                    Digital artists mint NFT collections. Collectors and reviewers earn tokens for detailed, community-vetted critiques or for promoting works on social platforms.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="use-case-card">
+                            <div class="use-case-img" style="background-image: url('https://picsum.photos/seed/tech/400/200.jpg');"></div>
+                            <div class="use-case-content">
+                                <h3 class="use-case-title">💻 Tech</h3>
+                                <p class="use-case-description">
+                                    Developers publish open-source tools. Users review and rate code quality to earn tokens, while developers receive tokens per verified usage or contribution.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="use-case-card">
+                            <div class="use-case-img" style="background-image: url('https://picsum.photos/seed/books/400/200.jpg');"></div>
+                            <div class="use-case-content">
+                                <h3 class="use-case-title">📚 Books</h3>
+                                <p class="use-case-description">
+                                    Indie authors tokenize chapters. Readers stake tokens to unlock content, and meaningful reviews earn CREADAO tokens, encouraging high-quality literary criticism.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="use-case-card">
+                            <div class="use-case-img" style="background-image: url('https://picsum.photos/seed/nature/400/200.jpg');"></div>
+                            <div class="use-case-content">
+                                <h3 class="use-case-title">🌿 Nature</h3>
+                                <p class="use-case-description">
+                                    Environmental projects are tokenized. Donors or reviewers who verify results with photos/data earn tokens for transparency efforts and conservation advocacy.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="use-case-card">
+                            <div class="use-case-img" style="background-image: url('https://picsum.photos/seed/music/400/200.jpg');"></div>
+                            <div class="use-case-content">
+                                <h3 class="use-case-title">🎶 Music</h3>
+                                <p class="use-case-description">
+                                    Fans discover new artists, review songs, or curate playlists. Their engagement drives streams, and they earn tokens from the artist's community pool.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Roadmap Section -->
+        <section id="roadmap" class="section-padding roadmap">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <h2 class="section-title">Roadmap</h2>
+                    <p class="section-subtitle">Our journey to revolutionize the creative economy</p>
+                </div>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-date">Q2 2023</div>
+                            <h4 class="timeline-title">Project Inception</h4>
+                            <p>Concept development, team formation, and initial whitepaper creation.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-date">Q3 2023</div>
+                            <h4 class="timeline-title">Token Launch</h4>
+                            <p>$CREADAO token generation event, initial liquidity provision, and exchange listings.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-date">Q4 2023</div>
+                            <h4 class="timeline-title">Platform Alpha</h4>
+                            <p>Launch of alpha version with core features for creators and basic engagement rewards.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-date">Q1 2024</div>
+                            <h4 class="timeline-title">DAO Implementation</h4>
+                            <p>Full deployment of Creator and Consumer DAOs with governance voting mechanisms.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-date">Q2 2024</div>
+                            <h4 class="timeline-title">Platform Beta</h4>
+                            <p>Public beta launch with all creative domains, advanced reward systems, and mobile app.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-date">Q3 2024</div>
+                            <h4 class="timeline-title">Full Launch</h4>
+                            <p>Official platform launch with comprehensive features, partnerships, and global expansion.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="section-padding">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <h2 class="section-title">Frequently Asked Questions</h2>
+                    <p class="section-subtitle">Everything you need to know about CreaverseDAO</p>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="accordion" id="faqAccordion">
+                            <div class="accordion-item mb-3">
+                                <h2 class="accordion-header" id="heading1">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1">
+                                        How does CreaverseDAO ensure fair revenue distribution?
+                                    </button>
+                                </h2>
+                                <div id="collapse1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body">
+                                        CreaverseDAO uses smart contracts to automatically distribute royalties according to predefined splits. All transactions are transparent and verifiable on the blockchain, eliminating the need for intermediaries and ensuring creators receive their fair share instantly.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item mb-3">
+                                <h2 class="accordion-header" id="heading2">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2">
+                                        How does the Proof-of-Value system work?
+                                    </button>
+                                </h2>
+                                <div id="collapse2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body">
+                                        The Proof-of-Value (PoV) system calculates rewards based on three factors: Engagement Quality (depth and thoughtfulness of reviews), Accuracy (how well predictions or reviews match actual outcomes), and Community Trust (upvotes from other users). This ensures that genuine, valuable contributions are rewarded while preventing spam or low-quality content.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item mb-3">
+                                <h2 class="accordion-header" id="heading3">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3">
+                                        Is the $CREADAO token a security?
+                                    </button>
+                                </h2>
+                                <div id="collapse3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body">
+                                        $CREADAO is designed as a utility token with specific functions within the CreaverseDAO ecosystem: rewards, governance, access, and staking. It is not marketed as an investment vehicle and does not promise financial returns. However, regulatory requirements vary by jurisdiction, and we advise users to consult with legal professionals in their region.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item mb-3">
+                                <h2 class="accordion-header" id="heading4">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4">
+                                        How does CreaverseDAO comply with app store policies?
+                                    </button>
+                                </h2>
+                                <div id="collapse4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body">
+                                        Our app uses an off-chain points system within the application, which can be converted to $CREADAO tokens through our web portal. This approach keeps us compliant with app store policies while still providing blockchain benefits to users. We maintain full transparency about token utility and earnings mechanisms.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item mb-3">
+                                <h2 class="accordion-header" id="heading5">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse5">
+                                        How can I get started with CreaverseDAO?
+                                    </button>
+                                </h2>
+                                <div id="collapse5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body">
+                                        You can start by downloading our app or visiting our web platform. Create an account, complete the onboarding process, and begin engaging with content to earn rewards. If you're a creator, you can submit your work for tokenization and start earning royalties immediately.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="section-padding" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+            <div class="container text-center">
+                <h2 class="text-white mb-4">Join the Creative Revolution</h2>
+                <p class="text-white-50 mb-5 col-lg-6 mx-auto">
+                    Be part of a community where creativity is valued, engagement is rewarded, and the economy is owned by its participants.
+                </p>
+                <div class="d-flex flex-wrap justify-content-center gap-3">
+                    <a href="#" class="btn btn-light btn-lg px-5 py-3 rounded-pill">
+                        <i class="fas fa-rocket me-2"></i> Get Started
+                    </a>
+                    <a href="#" class="btn btn-outline-light btn-lg px-5 py-3 rounded-pill">
+                        <i class="fab fa-discord me-2"></i> Join Community
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 mb-4">
+                        <div class="footer-logo">
+                            <img src="https://z-cdn-media.chatglm.cn/files/e90b23a3-b24a-4ab9-8a45-5730adf094dd_dao.png?auth_key=1792192747-6a41cbcdcc6849f6ab8363a42bd392f1-0-9330ec1ce8083ca1dbe9c276bdc3648a" alt="CreaverseDAO Logo">
+                        </div>
+                        <p class="footer-description">
+                            The living universe of creativity, where every act of creation adds value.
+                        </p>
+                        <div class="social-icons">
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-discord"></i></a>
+                            <a href="#"><i class="fab fa-telegram"></i></a>
+                            <a href="#"><i class="fab fa-medium"></i></a>
+                            <a href="#"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-6 mb-4">
+                        <div class="footer-links">
+                            <h5>Platform</h5>
+                            <ul>
+                                <li><a href="#how-it-works">How It Works</a></li>
+                                <li><a href="#token">Token</a></li>
+                                <li><a href="#use-cases">Use Cases</a></li>
+                                <li><a href="#roadmap">Roadmap</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-6 mb-4">
+                        <div class="footer-links">
+                            <h5>Resources</h5>
+                            <ul>
+                                <li><a href="#" id="footerWhitepaperLink">Whitepaper</a></li>
+                                <li><a href="#">Documentation</a></li>
+                                <li><a href="#">Blog</a></li>
+                                <li><a href="#faq">FAQ</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-6 mb-4">
+                        <div class="footer-links">
+                            <h5>Community</h5>
+                            <ul>
+                                <li><a href="#">Discord</a></li>
+                                <li><a href="#">Telegram</a></li>
+                                <li><a href="#">Twitter</a></li>
+                                <li><a href="#">Reddit</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-6 mb-4">
+                        <div class="footer-links">
+                            <h5>Legal</h5>
+                            <ul>
+                                <li><a href="#">Terms of Service</a></li>
+                                <li><a href="#">Privacy Policy</a></li>
+                                <li><a href="#">Cookie Policy</a></li>
+                                <li><a href="#">Disclaimer</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="copyright">
+                    <p>&copy; 2025 CreaverseDAO. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Whitepaper Section (Hidden by default) -->
+    <section id="whitepaperSection" class="whitepaper-section">
+        <button class="whitepaper-close-btn" id="closeWhitepaper">
+            <i class="fas fa-times"></i>
+        </button>
+        
+        <!-- Whitepaper Hero -->
+        <div class="whitepaper-hero">
+            <div class="container">
+                <div class="whitepaper-hero-content">
+                    <h1 class="whitepaper-title">CreaverseDAO Whitepaper</h1>
+                    <p class="whitepaper-subtitle">The Living Universe of Creativity - A Decentralized Creator & Consumer Economy</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Whitepaper Content -->
+        <div class="container">
+            <div class="whitepaper-container">
+                <!-- Table of Contents -->
+                <div class="whitepaper-toc-container">
+                    <h3 class="whitepaper-toc-title">Table of Contents</h3>
+                    <ul class="whitepaper-toc-list">
+                        <li><a href="#executive-summary">1. Executive Summary</a></li>
+                        <li><a href="#problem-statement">2. Problem Statement</a></li>
+                        <li><a href="#solution-overview">3. Solution Overview</a></li>
+                        <li><a href="#technical-architecture">4. Technical Architecture</a>
+                            <ul class="whitepaper-toc-list toc-level-2">
+                                <li><a href="#blockchain-infrastructure">4.1 Blockchain Infrastructure</a></li>
+                                <li><a href="#smart-contracts">4.2 Smart Contracts</a></li>
+                                <li><a href="#tokenized-creative-works">4.3 Tokenized Creative Works</a></li>
+                                <li><a href="#proof-of-value-system">4.4 Proof-of-Value System</a></li>
+                                <li><a href="#dao-governance">4.5 DAO Governance</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#tokenomics">5. Tokenomics</a>
+                            <ul class="whitepaper-toc-list toc-level-2">
+                                <li><a href="#token-utility">5.1 Token Utility</a></li>
+                                <li><a href="#token-distribution">5.2 Token Distribution</a></li>
+                                <li><a href="#economic-model">5.3 Economic Model</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#use-cases">6. Use Cases</a>
+                            <ul class="whitepaper-toc-list toc-level-2">
+                                <li><a href="#cinema">6.1 Cinema</a></li>
+                                <li><a href="#art">6.2 Art</a></li>
+                                <li><a href="#tech">6.3 Tech</a></li>
+                                <li><a href="#books">6.4 Books</a></li>
+                                <li><a href="#nature">6.5 Nature</a></li>
+                                <li><a href="#music">6.6 Music</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#roadmap">7. Roadmap</a></li>
+                        <li><a href="#team">8. Team</a></li>
+                        <li><a href="#legal-considerations">9. Legal Considerations</a></li>
+                        <li><a href="#conclusion">10. Conclusion</a></li>
+                    </ul>
+                </div>
+
+                <!-- Executive Summary -->
+                <section id="executive-summary">
+                    <h2 class="whitepaper-section-title">1. Executive Summary</h2>
+                    <p class="whitepaper-paragraph">
+                        CreaverseDAO is a revolutionary decentralized platform designed to transform the creative economy by eliminating intermediaries and establishing a direct value exchange between creators and consumers. In the current creative landscape, artists, writers, filmmakers, and other creators lose significant portions of their earnings to centralized platforms, while consumers who contribute value through engagement, discovery, and reviews receive no compensation for their efforts.
+                    </p>
+                    <p class="whitepaper-paragraph">
+                        Our solution leverages blockchain technology to create a transparent ecosystem where creative works are tokenized, enabling automatic royalty distribution through smart contracts. The platform introduces a novel "Engage-to-Earn" model where consumers are rewarded with CREADAO tokens for meaningful contributions such as verified reviews, early discovery, and content promotion. These rewards are calculated using our proprietary Proof-of-Value (PoV) system, which ensures quality engagement while preventing spam and low-quality content.
+                    </p>
+                    <p class="whitepaper-paragraph">
+                        CreaverseDAO implements a dual governance structure with separate Creator and Consumer DAOs, ensuring balanced influence between content producers and their audiences. The CREADAO token serves multiple functions within the ecosystem: as a reward mechanism, governance tool, access key to premium content, and a staking asset for enhanced visibility and rewards.
+                    </p>
+                    <p class="whitepaper-paragraph">
+                        This whitepaper outlines the technical architecture, tokenomics, governance model, and implementation strategy for CreaverseDAO, demonstrating how our platform will create a more equitable, transparent, and sustainable creative economy that benefits all participants.
+                    </p>
+                </section>
+
+                <!-- Problem Statement -->
+                <section id="problem-statement">
+                    <h2 class="whitepaper-section-title">2. Problem Statement</h2>
+                    <p class="whitepaper-paragraph">
+                        The creative economy is currently plagued by systemic inefficiencies and inequities that disadvantage both creators and consumers. Despite the digital revolution making content distribution more accessible than ever, the value exchange within creative industries remains fundamentally broken.
+                    </p>
+                    
+                    <h3 class="whitepaper-sub-subsection-title">2.1 Creator Disadvantages</h3>
+                    <div class="whitepaper-list-item">Excessive platform fees: Centralized platforms typically take 30-50% of creator earnings</div>
+                    <div class="whitepaper-list-item">Opaque revenue models: Creators often lack transparency in how their earnings are calculated</div>
+                    <div class="whitepaper-list-item">Delayed payments: Lengthy payout processes create cash flow issues for creators</div>
+                    <div class="whitepaper-list-item">Limited control: Platforms can change terms, demonetize content, or ban accounts arbitrarily</div>
+                    <div class="whitepaper-list-item">Discoverability challenges: Quality content often struggles to gain visibility without algorithmic favor</div>
+                    
+                    <h3 class="whitepaper-sub-subsection-title">2.2 Consumer Disadvantages</h3>
+                    <div class="whitepaper-list-item">No compensation for value creation: Consumers contribute significantly through engagement, reviews, and discovery</div>
+                    <div class="whitepaper-list-item">Limited influence: Consumers have little say in platform governance or content curation</div>
+                    <div class="whitepaper-list-item">Privacy concerns: Personal data is harvested and monetized without user benefit</div>
+                    <div class="whitepaper-list-item">Platform dependency: Consumers lose access to purchased content if platforms change policies or shut down</div>
+                    
+                    <h3 class="whitepaper-sub-subsection-title">2.3 Systemic Issues</h3>
+                    <div class="whitepaper-list-item">Middlemen capture disproportionate value: Intermediaries extract more value than they create</div>
+                    <div class="whitepaper-list-item">Lack of transparency: Opaque algorithms and revenue models create information asymmetry</div>
+                    <div class="whitepaper-list-item">Centralized control: Single points of failure and censorship vulnerability</div>
+                    <div class="whitepaper-list-item">Fragmented creator-consumer relationship: Platforms create artificial barriers between creators and their audiences</div>
+                    
+                    <div class="whitepaper-highlight-box">
+                        <p>
+                            The current creative economy operates on an extractive model where platforms capture disproportionate value while creators and consumers—the true value generators—receive minimal compensation or influence. This misalignment of incentives stifles creativity, limits economic opportunity, and creates an unsustainable ecosystem.
+                        </p>
+                    </div>
+                </section>
+
+                <!-- Solution Overview -->
+                <section id="solution-overview">
+                    <h2 class="whitepaper-section-title">3. Solution Overview</h2>
+                    <p class="whitepaper-paragraph">
+                        CreaverseDAO addresses these systemic issues through a comprehensive blockchain-based solution that reimagines the creator-consumer relationship. Our platform establishes a direct value exchange where all participants are fairly compensated for their contributions.
+                    </p>
+                    
+                    <h3 class="whitepaper-sub-subsection-title">3.1 Core Principles</h3>
+                    <div class="whitepaper-list-item">Transparency: All transactions, revenue splits, and governance decisions are publicly verifiable on-chain</div>
+                    <div class="whitepaper-list-item">Fairness: Value is distributed proportionally to those who create it</div>
+                    <div class="whitepaper-list-item">Accessibility: Low barriers to entry for both creators and consumers</div>
+                    <div class="whitepaper-list-item">Sustainability: Economic model designed for long-term viability without constant growth pressure</div>
+                    <div class="whitepaper-list-item">Community ownership: Governance distributed among all ecosystem participants</div>
+                    
+                    <h3 class="whitepaper-sub-subsection-title">3.2 Key Innovations</h3>
+                    <div class="whitepaper-list-item">Tokenized creative works: Each project is represented by a smart contract with transparent royalty distribution</div>
+                    <div class="whitepaper-list-item">Engage-to-Earn model: Consumers earn tokens for meaningful engagement and contribution</div>
+                    <div class="whitepaper-list-item">Proof-of-Value system: Algorithmic determination of engagement quality to prevent spam and reward genuine contributions</div>
+                    <div class="whitepaper-list-item">Dual DAO governance: Separate but interconnected governance structures for creators and consumers</div>
+                    <div class="whitepaper-list-item">Cross-domain applicability: Platform designed to accommodate diverse creative industries</div>
+                    
+                    <div class="whitepaper-diagram-container">
+                        <img src="https://picsum.photos/seed/creaversedao-ecosystem/800/400.jpg" alt="CreaverseDAO Ecosystem Diagram" class="whitepaper-diagram-img">
+                        <p class="mt-2 text-muted">Figure 1: CreaverseDAO Ecosystem Overview</p>
+                    </div>
+                    
+                    <p class="whitepaper-paragraph">
+                        By implementing these innovations, CreaverseDAO creates a self-sustaining creative economy where value flows directly between creators and consumers, with minimal extraction by intermediaries. This model incentivizes quality content creation, meaningful engagement, and collaborative curation, resulting in a more vibrant and equitable creative ecosystem.
+                    </p>
+                </section>
+
+                <!-- Technical Architecture -->
+                <section id="technical-architecture">
+                    <h2 class="whitepaper-section-title">4. Technical Architecture</h2>
+                    
+                    <h3 class="whitepaper-subsection-title" id="blockchain-infrastructure">4.1 Blockchain Infrastructure</h3>
+                    <p class="whitepaper-paragraph">
+                        CreaverseDAO is built on a multi-chain architecture to optimize for scalability, cost-efficiency, and security. The primary infrastructure is deployed on Ethereum for its robust smart contract capabilities and extensive ecosystem support, with layer-2 solutions integrated for transaction efficiency.
+                    </p>
+                    <p class="whitepaper-paragraph">
+                        Critical components of our blockchain infrastructure include:
+                    </p>
+                    <div class="whitepaper-list-item">Smart contract deployment on Ethereum mainnet for core governance and token contracts</div>
+                    <div class="whitepaper-list-item">Layer-2 integration (Arbitrum/Optimism) for high-frequency transactions like rewards and micro-payments</div>
+                    <div class="whitepaper-list-item">IPFS for decentralized content storage, ensuring permanence and censorship resistance</div>
+                    <div class="whitepaper-list-item">Cross-chain bridges to enable interoperability with other creative ecosystems</div>
+                    <div class="whitepaper-list-item">Decentralized oracle networks for real-world data integration</div>
+                    
+                    <h3 class="whitepaper-subsection-title" id="smart-contracts">4.2 Smart Contracts</h3>
+                    <p class="whitepaper-paragraph">
+                        The core functionality of CreaverseDAO is implemented through a series of interconnected smart contracts:
+                    </p>
+                    
+                    <h4 class="whitepaper-sub-subsection-title">4.2.1 CREADAO Token Contract</h4>
+                    <p class="whitepaper-paragraph">
+                        The ERC-20 compliant CREADAO token serves as the native utility token of the ecosystem. The contract implements standard token functionality with additional features including:
+                    </p>
+                    <div class="whitepaper-list-item">Staking mechanisms with reward distribution</div>
+                    <div class="whitepaper-list-item">Governance voting power delegation</div>
+                    <div class="whitepaper-list-item">Time-locked release schedules for ecosystem rewards</div>
+                    <div class="whitepaper-list-item">Automatic fee distribution to designated pools</div>
+                    
+                    <h4 class="whitepaper-sub-subsection-title">4.2.2 Creator Work Contract</h4>
+                    <p class="whitepaper-paragraph">
+                        Each creative work on the platform is represented by a unique Creator Work Contract that manages:
+                    </p>
+                    <div class="whitepaper-list-item">Tokenization of the creative work into fractional ownership</div>
+                    <div class="whitepaper-list-item">Automatic royalty distribution according to predefined splits</div>
+                    <div class="whitepaper-list-item">Access control for premium content</div>
+                    <div class="whitepaper-list-item">Revenue tracking and reporting</div>
+                    
+                    <h4 class="whitepaper-sub-subsection-title">4.2.3 Proof-of-Value Contract</h4>
+                    <p class="whitepaper-paragraph">
+                        The PoV contract implements our proprietary algorithm for calculating engagement value:
+                    </p>
+                    <div class="whitepaper-list-item">Quality assessment metrics for reviews and engagement</div>
+                    <div class="whitepaper-list-item">Spam detection and prevention mechanisms</div>
+                    <div class="whitepaper-list-item">Community trust scoring based on historical contributions</div>
+                    <div class="whitepaper-list-item">Reward calculation and distribution</div>
+                    
+                    <h4 class="whitepaper-sub-subsection-title">4.2.4 DAO Governance Contracts</h4>
+                    <p class="whitepaper-paragraph">
+                        Separate but interconnected governance contracts for Creator and Consumer DAOs:
+                    </p>
+                    <div class="whitepaper-list-item">Proposal submission and voting mechanisms</div>
+                    <div class="whitepaper-list-item">Quorum requirements and voting thresholds</div>
+                    <div class="whitepaper-list-item">Treasury management and fund allocation</div>
+                    <div class="whitepaper-list-item">Parameter adjustment capabilities for ecosystem evolution</div>
+                    
+                    <h3 class="whitepaper-subsection-title" id="tokenized-creative-works">4.3 Tokenized Creative Works</h3>
+                    <p class="whitepaper-paragraph">
+                        CreaverseDAO enables creators to tokenize their works through a standardized process that converts intellectual property into blockchain-based assets. This tokenization provides several advantages:
+                    </p>
+                    <div class="whitepaper-list-item">Fractional ownership of creative works</div>
+                    <div class="whitepaper-list-item">Transparent and automatic royalty distribution</div>
+                    <div class="whitepaper-list-item">Programmable access controls for premium content</div>
+                    <div class="whitepaper-list-item">Composability with other DeFi and NFT ecosystems</div>
+                    <div class="whitepaper-list-item">Verifiable provenance and ownership history</div>
+                    
+                    <div class="whitepaper-highlight-box">
+                        <p>
+                            The tokenization process is designed to be creator-friendly, with standardized templates and automated workflows that minimize technical barriers. Creators retain full control over their works while benefiting from the transparency and efficiency of blockchain infrastructure.
+                        </p>
+                    </div>
+                    
+                    <h3 class="whitepaper-subsection-title" id="proof-of-value-system">4.4 Proof-of-Value System</h3>
+                    <p class="whitepaper-paragraph">
+                        The Proof-of-Value (PoV) system is CreaverseDAO's innovative mechanism for quantifying and rewarding meaningful engagement. Unlike simple engagement metrics, PoV evaluates the quality, accuracy, and community impact of user contributions.
+                    </p>
+                    
+                    <h4 class="whitepaper-sub-subsection-title">4.4.1 PoV Calculation Methodology</h4>
+                    <p class="whitepaper-paragraph">
+                        PoV scores are calculated using a weighted algorithm that considers multiple factors:
+                    </p>
+                    <div class="whitepaper-table-container">
+                        <table class="whitepaper-custom-table">
+                            <thead>
+                                <tr>
+                                    <th>Factor</th>
+                                    <th>Weight</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Engagement Quality</td>
+                                    <td>40%</td>
+                                    <td>Depth, originality, and thoughtfulness of reviews and comments</td>
+                                </tr>
+                                <tr>
+                                    <td>Accuracy</td>
+                                    <td>25%</td>
+                                    <td>How well predictions or reviews match actual outcomes</td>
+                                </tr>
+                                <tr>
+                                    <td>Community Trust</td>
+                                    <td>20%</td>
+                                    <td>Upvotes, endorsements, and positive feedback from other users</td>
+                                </tr>
+                                <tr>
+                                    <td>Early Discovery</td>
+                                    <td>15%</td>
+                                    <td>Being among the first to identify and support quality content</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <h4 class="whitepaper-sub-subsection-title">4.4.2 Anti-Spam Mechanisms</h4>
+                    <p class="whitepaper-paragraph">
+                        To maintain the integrity of the PoV system, several anti-spam mechanisms are implemented:
+                    </p>
+                    <div class="whitepaper-list-item">Content similarity analysis to detect duplicate or plagiarized reviews</div>
+                    <div class="whitepaper-list-item">Behavioral pattern analysis to identify bot-like activity</div>
+                    <div class="whitepaper-list-item">Staking requirements for certain engagement types to ensure skin in the game</div>
+                    <div class="whitepaper-list-item">Community reporting mechanisms for flagging low-quality content</div>
+                    <div class="whitepaper-list-item">Progressive reward scaling based on historical contribution quality</div>
+                    
+                    <h3 class="whitepaper-subsection-title" id="dao-governance">4.5 DAO Governance</h3>
+                    <p class="whitepaper-paragraph">
+                        CreaverseDAO implements a dual governance structure with separate but interconnected Creator and Consumer DAOs. This design ensures balanced influence between content producers and their audiences.
+                    </p>
+                    
+                    <h4 class="whitepaper-sub-subsection-title">4.5.1 Creator DAO</h4>
+                    <p class="whitepaper-paragraph">
+                        The Creator DAO governs matters related to content creation and platform features:
+                    </p>
+                    <div class="whitepaper-list-item">Grant allocation for creative projects</div>
+                    <div class="whitepaper-list-item">Platform feature development priorities</div>
+                    <div class="whitepaper-list-item">Fee structure and revenue split adjustments</div>
+                    <div class="whitepaper-list-item">Content moderation policies and standards</div>
+                    
+                    <h4 class="whitepaper-sub-subsection-title">4.5.2 Consumer DAO</h4>
+                    <p class="whitepaper-paragraph">
+                        The Consumer DAO governs matters related to user experience and community curation:
+                    </p>
+                    <div class="whitepaper-list-item">Community funding for promising creators or projects</div>
+                    <div class="whitepaper-list-item">Content discovery algorithm parameters</div>
+                    <div class="whitepaper-list-item">Reward pool allocation and distribution criteria</div>
+                    <div class="whitepaper-list-item">Platform accessibility and usability improvements</div>
+                    
+                    <h4 class="whitepaper-sub-subsection-title">4.5.3 Joint Governance</h4>
+                    <p class="whitepaper-paragraph">
+                        Certain decisions require joint approval from both DAOs:
+                    </p>
+                    <div class="whitepaper-list-item">Major protocol upgrades and changes</div>
+                    <div class="whitepaper-list-item">Treasury management and fund allocation</div>
+                    <div class="whitepaper-list-item">Partnership agreements and integrations</div>
+                    <div class="whitepaper-list-item">Dispute resolution mechanisms</div>
+                    
+                    <div class="whitepaper-diagram-container">
+                        <img src="https://picsum.photos/seed/creaversedao-governance/800/400.jpg" alt="CreaverseDAO Governance Structure" class="whitepaper-diagram-img">
+                        <p class="mt-2 text-muted">Figure 2: CreaverseDAO Dual Governance Structure</p>
+                    </div>
+                </section>
+
+                <!-- Tokenomics -->
+                <section id="tokenomics">
+                    <h2 class="whitepaper-section-title">5. Tokenomics</h2>
+                    
+                    <h3 class="whitepaper-subsection-title" id="token-utility">5.1 Token Utility</h3>
+                    <p class="whitepaper-paragraph">
+                        The CREADAO token serves multiple functions within the ecosystem, creating a circular economy that drives platform growth and sustainability:
+                    </p>
+                    
+                    <h4 class="whitepaper-sub-subsection-title">5.1.1 Rewards</h4>
+                    <p class="whitepaper-paragraph">
+                        CREADAO tokens are distributed as rewards to:
+                    </p>
+                    <div class="whitepaper-list-item">Creators for producing quality content</div>
+                    <div class="whitepaper-list-item">Consumers for meaningful engagement and reviews</div>
+                    <div class="whitepaper-list-item">Referrers for bringing new users to the platform</div>
+                    <div class="whitepaper-list-item">Curators for identifying and promoting quality content</div>
+                    
+                    <h4 class="whitepaper-sub-subsection-title">5.1.2 Governance</h4>
+                    <p class="whitepaper-paragraph">
+                        Token holders can:
+                    </p>
+                    <div class="whitepaper-list-item">Vote on proposals in both Creator and Consumer DAOs</div>
+                    <div class="whitepaper-list-item">Submit proposals for platform improvements or fund allocation</div>
+                    <div class="whitepaper-list-item">Delegate voting power to trusted representatives</div>
+                    <div class="whitepaper-list-item">Participate in quadratic voting for certain decisions</div>
+                    
+                    <h4 class="whitepaper-sub-subsection-title">5.1.3 Access</h4>
+                    <p class="whitepaper-paragraph">
+                        Tokens can be used to:
+                    </p>
+                    <div class="whitepaper-list-item">Unlock premium content and features</div>
+                    <div class="whitepaper-list-item">Gain early access to new releases</div>
+                    <div class="whitepaper-list-item">Purchase limited edition digital collectibles</div>
+                    <div class="whitepaper-list-item">Access exclusive community events and experiences</div>
+                    
+                    <h4 class="whitepaper-sub-subsection-title">5.1.4 Staking</h4>
+                    <p class="whitepaper-paragraph">
+                        Users can stake tokens to:
+                    </p>
+                    <div class="whitepaper-list-item">Increase visibility of their content or reviews</div>
+                    <div class="whitepaper-list-item">Earn higher reward multipliers on engagement</div>
+                    <div class="whitepaper-list-item">Reduce transaction fees within the platform</div>
+                    <div class="whitepaper-list-item">Access premium staking pools with higher yields</div>
+                    
+                    <h3 class="whitepaper-subsection-title" id="token-distribution">5.2 Token Distribution</h3>
+                    <p class="whitepaper-paragraph">
+                        The total supply of CREADAO tokens is fixed at 1 billion, with the following distribution:
+                    </p>
+                    
+                    <div class="whitepaper-table-container">
+                        <table class="whitepaper-custom-table">
+                            <thead>
+                                <tr>
+                                    <th>Allocation</th>
+                                    <th>Percentage</th>
+                                    <th>Amount (Tokens)</th>
+                                    <th>Vesting Schedule</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Creator Rewards</td>
+                                    <td>40%</td>
+                                    <td>400,000,000</td>
+                                    <td>Linear release over 5 years</td>
+                                </tr>
+                                <tr>
+                                    <td>Consumer Rewards</td>
+                                    <td>25%</td>
+                                    <td>250,000,000</td>
+                                    <td>Linear release over 5 years</td>
+                                </tr>
+                                <tr>
+                                    <td>Ecosystem Development</td>
+                                    <td>15%</td>
+                                    <td>150,000,000</td>
+                                    <td>1-year cliff, then linear over 4 years</td>
+                                </tr>
+                                <tr>
+                                    <td>Team & Advisors</td>
+                                    <td>10%</td>
+                                    <td>100,000,000</td>
+                                    <td>1-year cliff, then linear over 4 years</td>
+                                </tr>
+                                <tr>
+                                    <td>Reserve</td>
+                                    <td>5%</td>
+                                    <td>50,000,000</td>
+                                    <td>Released as needed by DAO vote</td>
+                                </tr>
+                                <tr>
+                                    <td>Public Offering</td>
+                                    <td>5%</td>
+                                    <td>50,000,000</td>
+                                    <td>25% at TGE, 75% linear over 2 years</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <h3 class="whitepaper-subsection-title" id="economic-model">5.3 Economic Model</h3>
+                    <p class="whitepaper-paragraph">
+                        The CreaverseDAO economic model is designed to create a self-sustaining ecosystem with multiple revenue streams:
+                    </p>
+                    
+                    <h4 class="whitepaper-sub-subsection-title">5.3.1 Revenue Streams</h4>
+                    <div class="whitepaper-list-item">Transaction fees (1-3%) on all platform transactions</div>
+                    <div class="whitepaper-list-item">Premium content access fees</div>
+                    <div class="whitepaper-list-item">Advertising revenue (optional, shared transparently)</div>
+                    <div class="whitepaper-list-item">Partnership and integration fees</div>
+                    <div class="whitepaper-list-item">Treasury investment returns</div>
+                    
+                    <h4 class="whitepaper-sub-subsection-title">5.3.2 Value Capture Mechanisms</h4>
+                    <div class="whitepaper-list-item">Fee distribution to reward pools and treasury</div>
+                    <div class="whitepaper-list-item">Token burning from a portion of platform fees</div>
+                    <div class="whitepaper-list-item">Staking requirements for premium features</div>
+                    <div class="whitepaper-list-item">Value accrual through platform growth and adoption</div>
+                    
+                    <div class="whitepaper-highlight-box">
+                        <p>
+                            The economic model is designed to balance growth incentives with long-term sustainability. By aligning the interests of creators, consumers, and token holders, CreaverseDAO creates a positive feedback loop where platform success directly benefits all participants.
+                        </p>
+                    </div>
+                </section>
+
+                <!-- Use Cases -->
+                <section id="use-cases">
+                    <h2 class="whitepaper-section-title">6. Use Cases</h2>
+                    <p class="whitepaper-paragraph">
+                        CreaverseDAO is designed to accommodate diverse creative domains, with specific implementations tailored to the unique needs of each industry:
+                    </p>
+                    
+                    <h3 class="whitepaper-subsection-title" id="cinema">6.1 Cinema</h3>
+                    <p class="whitepaper-paragraph">
+                        In the film industry, CreaverseDAO enables:
+                    </p>
+                    <div class="whitepaper-list-item">Tokenization of film projects with transparent royalty distribution to cast, crew, and investors</div>
+                    <div class="whitepaper-list-item">Early viewers earn tokens for detailed reviews that help promote quality films</div>
+                    <div class="whitepaper-list-item">Crowdfunding mechanisms for independent productions with investor protections</div>
+                    <div class="whitepaper-list-item">Secondary market for film ownership shares, allowing liquidity for creators and investors</div>
+                    
+                    <h3 class="whitepaper-subsection-title" id="art">6.2 Art</h3>
+                    <p class="whitepaper-paragraph">
+                        For visual artists, CreaverseDAO provides:
+                    </p>
+                    <div class="whitepaper-list-item">NFT minting with customizable royalty structures for secondary sales</div>
+                    <div class="whitepaper-list-item">Community curation system where collectors and critics earn tokens for identifying promising artists</div>
+                    <div class="whitepaper-list-item">Fractional ownership of high-value artworks</div>
+                    <div class="whitepaper-list-item">Digital and physical art authentication and provenance tracking</div>
+                    
+                    <h3 class="whitepaper-subsection-title" id="tech">6.3 Tech</h3>
+                    <p class="whitepaper-paragraph">
+                        In the technology sector, CreaverseDAO supports:
+                    </p>
+                    <div class="whitepaper-list-item">Open-source project funding through community grants</div>
+                    <div class="whitepaper-list-item">Code review and quality assessment with token rewards</div>
+                    <div class="whitepaper-list-item">Bug bounty programs with transparent compensation</div>
+                    <div class="whitepaper-list-item">Developer reputation system based on contribution history and quality</div>
+                    
+                    <h3 class="whitepaper-subsection-title" id="books">6.4 Books</h3>
+                    <p class="whitepaper-paragraph">
+                        For authors and publishers, CreaverseDAO offers:
+                    </p>
+                    <div class="whitepaper-list-item">Chapter-by-chapter tokenization with reader staking for early access</div>
+                    <div class="whitepaper-list-item">Review system that rewards thoughtful literary criticism</div>
+                    <div class="whitepaper-list-item">Direct author-reader relationship without publisher intermediation</div>
+                    <div class="whitepaper-list-item">Adaptive pricing based on demand and engagement metrics</div>
+                    
+                    <h3 class="whitepaper-subsection-title" id="nature">6.5 Nature</h3>
+                    <p class="whitepaper-paragraph">
+                        In environmental initiatives, CreaverseDAO enables:
+                    </p>
+                    <div class="whitepaper-list-item">Tokenization of conservation projects with transparent fund allocation</div>
+                    <div class="whitepaper-list-item">Verification systems for environmental outcomes using oracles and community reporting</div>
+                    <div class="whitepaper-list-item">Carbon credit trading and retirement mechanisms</div>
+                    <div class="whitepaper-list-item">Rewards for verifiable positive environmental impact</div>
+                    
+                    <h3 class="whitepaper-subsection-title" id="music">6.6 Music</h3>
+                    <p class="whitepaper-paragraph">
+                        For musicians and the music industry, CreaverseDAO provides:
+                    </p>
+                    <div class="whitepaper-list-item">Rights management with automatic royalty distribution to all contributors</div>
+                    <div class="whitepaper-list-item">Fan curation and playlist creation with token rewards</div>
+                    <div class="whitepaper-list-item">Direct artist-fan funding mechanisms</div>
+                    <div class="whitepaper-list-item">Transparent streaming metrics and compensation</div>
+                    
+                    <div class="whitepaper-highlight-box">
+                        <p>
+                            These use cases demonstrate the versatility of the CreaverseDAO platform across creative industries. By providing a unified infrastructure with domain-specific implementations, we create network effects that benefit all participants regardless of their creative discipline.
+                        </p>
+                    </div>
+                </section>
+
+                <!-- Roadmap -->
+                <section id="roadmap">
+                    <h2 class="whitepaper-section-title">7. Roadmap</h2>
+                    <p class="whitepaper-paragraph">
+                        The CreaverseDAO development roadmap is structured in phases to ensure systematic growth and community involvement:
+                    </p>
+                    
+                    <h3 class="whitepaper-sub-subsection-title">Phase 1: Foundation (Q2-Q3 2023)</h3>
+                    <div class="whitepaper-list-item">Concept development and team formation</div>
+                    <div class="whitepaper-list-item">Initial whitepaper creation and community feedback</div>
+                    <div class="whitepaper-list-item">Smart contract development and security audits</div>
+                    <div class="whitepaper-list-item">Token generation event and initial liquidity provision</div>
+                    <div class="whitepaper-list-item">Community building and initial partnerships</div>
+                    
+                    <h3 class="whitepaper-sub-subsection-title">Phase 2: Alpha Launch (Q4 2023)</h3>
+                    <div class="whitepaper-list-item">Platform alpha release with core features</div>
+                    <div class="whitepaper-list-item">Initial creator onboarding and content tokenization</div>
+                    <div class="whitepaper-list-item">Basic engagement rewards system implementation</div>
+                    <div class="whitepaper-list-item">Community governance framework establishment</div>
+                    <div class="whitepaper-list-item">User feedback collection and iterative improvements</div>
+                    
+                    <h3 class="whitepaper-sub-subsection-title">Phase 3: Beta Expansion (Q1-Q2 2024)</h3>
+                    <div class="whitepaper-list-item">Public beta launch with expanded feature set</div>
+                    <div class="whitepaper-list-item">Full implementation of Proof-of-Value system</div>
+                    <div class="whitepaper-list-item">Creator and Consumer DAO deployment</div>
+                    <div class="whitepaper-list-item">Mobile application development and release</div>
+                    <div class="whitepaper-list-item">Integration with external platforms and services</div>
+                    
+                    <h3 class="whitepaper-sub-subsection-title">Phase 4: Full Launch (Q3 2024)</h3>
+                    <div class="whitepaper-list-item">Official platform launch with comprehensive features</div>
+                    <div class="whitepaper-list-item">Marketing campaign and user acquisition push</div>
+                    <div class="whitepaper-list-item">Partnership expansion across creative industries</div>
+                    <div class="whitepaper-list-item">Advanced analytics and creator tools</div>
+                    <div class="whitepaper-list-item">Global expansion and localization</div>
+                    
+                    <h3 class="whitepaper-sub-subsection-title">Phase 5: Ecosystem Growth (2025+)</h3>
+                    <div class="whitepaper-list-item">Cross-chain expansion and interoperability</div>
+                    <div class="whitepaper-list-item">Advanced DAO governance mechanisms</div>
+                    <div class="whitepaper-list-item">AI-powered content discovery and curation</div>
+                    <div class="whitepaper-list-item">Physical-digital integration for creative works</div>
+                    <div class="whitepaper-list-item">Decentralized physical infrastructure (DePIN) for content delivery</div>
+                    
+                    <div class="whitepaper-diagram-container">
+                        <img src="https://picsum.photos/seed/creaversedao-roadmap/800/400.jpg" alt="CreaverseDAO Development Roadmap" class="whitepaper-diagram-img">
+                        <p class="mt-2 text-muted">Figure 3: CreaverseDAO Development Roadmap</p>
+                    </div>
+                </section>
+
+                <!-- Team -->
+                <section id="team">
+                    <h2 class="whitepaper-section-title">8. Team</h2>
+                    <p class="whitepaper-paragraph">
+                        The CreaverseDAO team brings together diverse expertise from blockchain technology, creative industries, and community building:
+                    </p>
+                    
+                    <h3 class="whitepaper-sub-subsection-title">8.1 Core Team</h3>
+                    <div class="whitepaper-list-item">Blockchain developers with experience in DeFi and NFT protocols</div>
+                    <div class="whitepaper-list-item">Creative industry professionals from film, music, art, and publishing</div>
+                    <div class="whitepaper-list-item">Community managers with proven track records in Web3 ecosystem building</div>
+                    <div class="whitepaper-list-item">Legal experts specializing in intellectual property and regulatory compliance</div>
+                    <div class="whitepaper-list-item">User experience designers focused on accessibility and intuitive interfaces</div>
+                    
+                    <h3 class="whitepaper-sub-subsection-title">8.2 Advisors</h3>
+                    <div class="whitepaper-list-item">Established creators and artists with large followings</div>
+                    <div class="whitepaper-list-item">Venture capitalists and investors in the creative technology space</div>
+                    <div class="whitepaper-list-item">Academic researchers in decentralized governance and economics</div>
+                    <div class="whitepaper-list-item">Industry executives with experience in platform scaling</div>
+                    
+                    <h3 class="whitepaper-sub-subsection-title">8.3 Community Contributors</h3>
+                    <p class="whitepaper-paragraph">
+                        As a decentralized project, CreaverseDAO will increasingly rely on community contributors for development, moderation, and governance. The platform includes mechanisms to recognize and reward these contributions through the CREADAO token and governance rights.
+                    </p>
+                </section>
+
+                <!-- Legal Considerations -->
+                <section id="legal-considerations">
+                    <h2 class="whitepaper-section-title">9. Legal Considerations</h2>
+                    <p class="whitepaper-paragraph">
+                        CreaverseDAO is designed with regulatory compliance as a core consideration:
+                    </p>
+                    
+                    <h3 class="whitepaper-sub-subsection-title">9.1 Token Classification</h3>
+                    <p class="whitepaper-paragraph">
+                        The CREADAO token is designed as a utility token with specific functions within the ecosystem:
+                    </p>
+                    <div class="whitepaper-list-item">Access to platform features and premium content</div>
+                    <div class="whitepaper-list-item">Governance rights in DAO decisions</div>
+                    <div class="whitepaper-list-item">Rewards for platform participation and contribution</div>
+                    <div class="whitepaper-list-item">Staking for enhanced platform benefits</div>
+                    
+                    <p class="whitepaper-paragraph">
+                        It is not marketed as an investment vehicle and does not promise financial returns. However, regulatory requirements vary by jurisdiction, and the project will adapt to evolving legal frameworks.
+                    </p>
+                    
+                    <h3 class="whitepaper-sub-subsection-title">9.2 Compliance Measures</h3>
+                    <div class="whitepaper-list-item">KYC/AML processes for token withdrawals and certain platform activities</div>
+                    <div class="whitepaper-list-item">Geographic restrictions for jurisdictions with unclear or unfavorable regulations</div>
+                    <div class="whitepaper-list-item">Regular legal reviews and adaptation to regulatory changes</div>
+                    <div class="whitepaper-list-item">Transparent communication about risks and legal considerations</div>
+                    
+                    <h3 class="whitepaper-sub-subsection-title">9.3 Intellectual Property</h3>
+                    <p class="whitepaper-paragraph">
+                        CreaverseDAO respects intellectual property rights and implements:
+                    </p>
+                    <div class="whitepaper-list-item">Clear ownership structures for tokenized creative works</div>
+                    <div class="whitepaper-list-item">Content moderation policies to prevent copyright infringement</div>
+                    <div class="whitepaper-list-item">Dispute resolution mechanisms for IP conflicts</div>
+                    <div class="whitepaper-list-item">Integration with existing IP protection systems where applicable</div>
+                    
+                    <div class="whitepaper-highlight-box">
+                        <p>
+                            This whitepaper does not constitute an offer to sell securities or a solicitation of investment. Potential participants should consult with legal and financial professionals before engaging with the platform, especially considering the evolving regulatory landscape for blockchain projects.
+                        </p>
+                    </div>
+                </section>
+
+                <!-- Conclusion -->
+                <section id="conclusion">
+                    <h2 class="whitepaper-section-title">10. Conclusion</h2>
+                    <p class="whitepaper-paragraph">
+                        CreaverseDAO represents a paradigm shift in the creative economy, addressing fundamental inefficiencies and inequities in current systems. By leveraging blockchain technology to create a transparent, fair, and community-owned ecosystem, we empower creators and consumers to capture the full value of their contributions.
+                    </p>
+                    <p class="whitepaper-paragraph">
+                        Our innovative approach to tokenization, engagement rewards, and decentralized governance creates a self-sustaining economy where quality content and meaningful participation are recognized and rewarded. The dual DAO structure ensures balanced influence between creators and consumers, while the Proof-of-Value system maintains quality standards and prevents manipulation.
+                    </p>
+                    <p class="whitepaper-paragraph">
+                        The technical architecture is designed for scalability, security, and interoperability, while the tokenomics model aligns incentives across all ecosystem participants. By accommodating diverse creative domains, CreaverseDAO creates network effects that benefit the entire creative economy.
+                    </p>
+                    <p class="whitepaper-paragraph">
+                        We invite creators, consumers, developers, and enthusiasts to join us in building this new paradigm for the creative economy. Together, we can create a more equitable, transparent, and sustainable ecosystem where creativity flourishes and all participants are fairly rewarded for their contributions.
+                    </p>
+                    
+                    <div class="whitepaper-highlight-box">
+                        <p>
+                            The future of creativity is decentralized, community-owned, and directly rewarding to those who create value. CreaverseDAO is not just a platform—it's a movement to reclaim the creative economy from extractive intermediaries and return it to the hands of creators and consumers.
+                        </p>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <!-- Back to Main Button -->
+        <a href="#" class="back-to-main" id="backToMain">
+            <i class="fas fa-arrow-up"></i>
+        </a>
+    </section>
+
+    <!-- Team Section (Hidden by default) -->
+    <section id="teamSection" class="team-section">
+        <button class="team-close-btn" id="closeTeam">
+            <i class="fas fa-times"></i>
+        </button>
+        
+        <!-- Team Hero -->
+        <div class="team-hero">
+            <div class="container">
+                <div class="team-hero-content">
+                    <h1 class="team-title">Step Into Our Team</h1>
+                    <p class="team-subtitle">Welcome to our team! Here, every individual has the opportunity to grow, contribute, and make a real impact.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Team Content -->
+        <div class="container">
+            <div class="team-container">
+                <!-- Welcome Section -->
+                <section>
+                    <h2 class="team-section-title">Welcome!</h2>
+                    <p class="team-paragraph">
+                        Welcome to our team! Here, every individual has the opportunity to grow, contribute, and make a real impact. By stepping into our team, you become part of a collaborative environment where creativity, innovation, and dedication meet purpose.
+                    </p>
+                </section>
+
+                <!-- Why Join Us Section -->
+                <section>
+                    <h2 class="team-subsection-title">Why Join Us:</h2>
+                    <div class="team-list-item">Growth & Learning: Access to continuous learning opportunities, skill development, and mentorship programs.</div>
+                    <div class="team-list-item">Collaborative Culture: Work alongside passionate professionals who value teamwork, knowledge sharing, and open communication.</div>
+                    <div class="team-list-item">Innovation & Creativity: Bring your ideas to life and contribute to projects that challenge conventional thinking.</div>
+                    <div class="team-list-item">Recognition & Rewards: Your efforts and achievements are celebrated, and your growth is supported.</div>
+                </section>
+
+                <!-- Who We're Looking For Section -->
+                <section>
+                    <h2 class="team-subsection-title">Who We're Looking For:</h2>
+                    <p class="team-paragraph">
+                        We welcome individuals who are:
+                    </p>
+                    <div class="team-list-item">Motivated and eager to learn</div>
+                    <div class="team-list-item">Team players who value collaboration</div>
+                    <div class="team-list-item">Creative thinkers with problem-solving skills</div>
+                    <div class="team-list-item">Passionate about making a difference in their field</div>
+                </section>
+
+                <!-- Positions Open Section -->
+                <section>
+                    <h2 class="team-subsection-title">Positions Open</h2>
+                    <p class="team-paragraph">
+                        Please select the position you are interested in applying for:
+                    </p>
+                    
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <div class="position-card" data-position="CTO / Technical Lead">
+                                <h4>CTO / Technical Lead</h4>
+                                <p>Oversees all technical development, blockchain integration, and smart contracts.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="position-card" data-position="Online Community Manager">
+                                <h4>Online Community Manager</h4>
+                                <p>Manages and grows our online communities.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="position-card" data-position="Blockchain Developer">
+                                <h4>Blockchain Developer(s)</h4>
+                                <p>Solidity/Polygon/Ethereum expertise for smart contracts (token creation, royalties, staking, DAO logic).</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="position-card" data-position="Graphic Designer / Brand Designer">
+                                <h4>Graphic Designer / Brand Designer</h4>
+                                <p>Designs logos, social media assets, icons, marketing visuals.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="position-card" data-position="Creator Relations Manager">
+                                <h4>Creator Relations Manager</h4>
+                                <p>Onboards artists, filmmakers, writers, developers, and other creators.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="position-card" data-position="Partnerships & Outreach Manager">
+                                <h4>Partnerships & Outreach Manager</h4>
+                                <p>Connects with platforms, universities, environmental organizations, and music/art communities.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Contact & Application Instructions -->
+                <section class="contact-info">
+                    <h3>Contact & Application Instructions</h3>
+                    <p>Once you select a position, please reach out via email:</p>
+                    <p class="email">Email: <a href="mailto:shreyasjangam010@gmail.com">shreyasjangam010@gmail.com</a></p>
+                    
+                    <h4>Application Requirements:</h4>
+                    <div class="team-list-item">Attach your Core Competencies Resume/CV</div>
+                    <div class="team-list-item">Mention the position you are applying for in your email</div>
+                    
+                    <p>We'll get in touch with you as soon as we can.</p>
+                </section>
+
+                <!-- Closing Call-to-Action -->
+                <section>
+                    <div class="team-highlight-box">
+                        <p>
+                            Your journey starts here. Step into our team and grow with us, innovate with us, and create a future we're all proud of.
+                        </p>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <!-- Back to Main Button -->
+        <a href="#" class="back-to-main-team" id="backToMainTeam">
+            <i class="fas fa-arrow-up"></i>
+        </a>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Whitepaper functionality
+        const readWhitepaperBtn = document.getElementById('readWhitepaperBtn');
+        const readWhitepaperBtn2 = document.getElementById('readWhitepaperBtn2');
+        const footerWhitepaperLink = document.getElementById('footerWhitepaperLink');
+        const whitepaperSection = document.getElementById('whitepaperSection');
+        const mainContent = document.getElementById('mainContent');
+        const closeWhitepaper = document.getElementById('closeWhitepaper');
+        const backToMain = document.getElementById('backToMain');
+
+        // Team functionality
+        const joinTeamBtn = document.getElementById('joinTeamBtn');
+        const teamSection = document.getElementById('teamSection');
+        const closeTeam = document.getElementById('closeTeam');
+        const backToMainTeam = document.getElementById('backToMainTeam');
+
+        // Function to show whitepaper
+        function showWhitepaper() {
+            mainContent.style.display = 'none';
+            whitepaperSection.classList.add('active');
+            window.scrollTo(0, 0);
+            document.body.style.overflow = 'auto';
+        }
+
+        // Function to hide whitepaper
+        function hideWhitepaper() {
+            whitepaperSection.classList.remove('active');
+            mainContent.style.display = 'block';
+            window.scrollTo(0, 0);
+            document.body.style.overflow = 'auto';
+        }
+
+        // Function to show team section
+        function showTeamSection() {
+            mainContent.style.display = 'none';
+            teamSection.classList.add('active');
+            window.scrollTo(0, 0);
+            document.body.style.overflow = 'auto';
+        }
+
+        // Function to hide team section
+        function hideTeamSection() {
+            teamSection.classList.remove('active');
+            mainContent.style.display = 'block';
+            window.scrollTo(0, 0);
+            document.body.style.overflow = 'auto';
+        }
+
+        // Function to navigate from whitepaper to main section
+        function navigateToMainSection(sectionId) {
+            hideWhitepaper();
+            // Use setTimeout to ensure the main content is visible before scrolling
+            setTimeout(() => {
+                const target = document.querySelector(sectionId);
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                }
+            }, 100);
+        }
+
+        // Function to navigate from team to main section
+        function navigateToMainSectionFromTeam(sectionId) {
+            hideTeamSection();
+            // Use setTimeout to ensure the main content is visible before scrolling
+            setTimeout(() => {
+                const target = document.querySelector(sectionId);
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                }
+            }, 100);
+        }
+
+        // Event listeners for whitepaper buttons
+        readWhitepaperBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            showWhitepaper();
+        });
+
+        readWhitepaperBtn2.addEventListener('click', function(e) {
+            e.preventDefault();
+            showWhitepaper();
+        });
+
+        footerWhitepaperLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            showWhitepaper();
+        });
+
+        closeWhitepaper.addEventListener('click', function() {
+            hideWhitepaper();
+        });
+
+        backToMain.addEventListener('click', function(e) {
+            e.preventDefault();
+            hideWhitepaper();
+        });
+
+        // Event listeners for team buttons
+        joinTeamBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            showTeamSection();
+        });
+
+        closeTeam.addEventListener('click', function() {
+            hideTeamSection();
+        });
+
+        backToMainTeam.addEventListener('click', function(e) {
+            e.preventDefault();
+            hideTeamSection();
+        });
+
+        // Position card click handlers
+        document.querySelectorAll('.position-card').forEach(card => {
+            card.addEventListener('click', function() {
+                const position = this.getAttribute('data-position');
+                const email = 'shreyasjangam010@gmail.com';
+                const subject = `Application for ${position}`;
+                const body = `I would like to apply for the ${position} position at CreaverseDAO.\n\nPlease find my resume attached.\n\nThank you for considering my application.`;
+                
+                window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            });
+        });
+
+        // Show/hide back to main button on scroll
+        window.addEventListener('scroll', function() {
+            if (whitepaperSection.classList.contains('active')) {
+                if (window.scrollY > 300) {
+                    backToMain.classList.add('show');
+                } else {
+                    backToMain.classList.remove('show');
+                }
+            }
+            
+            if (teamSection.classList.contains('active')) {
+                if (window.scrollY > 300) {
+                    backToMainTeam.classList.add('show');
+                } else {
+                    backToMainTeam.classList.remove('show');
+                }
+            }
+        });
+
+        // Enhanced navigation for whitepaper section
+        document.querySelectorAll('.navbar-nav .nav-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                
+                // If we're in the whitepaper section and the link is to a main section
+                if (whitepaperSection.classList.contains('active') && href && href.startsWith('#')) {
+                    e.preventDefault();
+                    navigateToMainSection(href);
+                }
+                // Normal navigation when not in whitepaper section
+                else if (!whitepaperSection.classList.contains('active') && href && href.startsWith('#')) {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        window.scrollTo({
+                            top: target.offsetTop - 70,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        });
+
+        // Enhanced navigation for team section
+        document.querySelectorAll('.navbar-nav .nav-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                
+                // If we're in the team section and the link is to a main section
+                if (teamSection.classList.contains('active') && href && href.startsWith('#')) {
+                    e.preventDefault();
+                    navigateToMainSectionFromTeam(href);
+                }
+                // Normal navigation when not in team section
+                else if (!teamSection.classList.contains('active') && href && href.startsWith('#')) {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        window.scrollTo({
+                            top: target.offsetTop - 70,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        });
+
+        // Footer links navigation
+        document.querySelectorAll('.footer-links a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                
+                // Special handling for whitepaper link
+                if (this.id === 'footerWhitepaperLink') {
+                    e.preventDefault();
+                    showWhitepaper();
+                }
+                // If we're in the whitepaper section and the link is to a main section
+                else if (whitepaperSection.classList.contains('active') && href && href.startsWith('#')) {
+                    e.preventDefault();
+                    navigateToMainSection(href);
+                }
+                // Normal navigation when not in whitepaper section
+                else if (!whitepaperSection.classList.contains('active') && href && href.startsWith('#')) {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        window.scrollTo({
+                            top: target.offsetTop - 70,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        });
+
+        // Navbar background on scroll
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.backgroundColor = 'rgba(255, 255, 255, 0.98)';
+            } else {
+                navbar.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
+            }
+        });
+
+        // Animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fade-in-up');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.process-step, .problem-card, .solution-card, .token-card, .use-case-card').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Connect wallet button (placeholder)
+        document.querySelectorAll('.btn-primary-custom').forEach(button => {
+            if (button.textContent.includes('Connect Wallet')) {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    alert('Wallet connection feature will be available in the next update. Please check back soon!');
+                });
+            }
+        });
+
+        // Timeline animation on scroll
+        const timelineObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const timelineItems = entry.target.querySelectorAll('.timeline-item');
+                    timelineItems.forEach((item, index) => {
+                        setTimeout(() => {
+                            item.style.opacity = '1';
+                            item.style.transform = 'translateY(0)';
+                        }, index * 200);
+                    });
+                }
+            });
+        }, { threshold: 0.1 });
+
+        const timeline = document.querySelector('.timeline');
+        if (timeline) {
+            timelineObserver.observe(timeline);
+            
+            // Set initial state for animation
+            document.querySelectorAll('.timeline-item').forEach(item => {
+                item.style.opacity = '0';
+                item.style.transform = 'translateY(30px)';
+                item.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            });
+        }
+    </script>
+</body>
+</html>
